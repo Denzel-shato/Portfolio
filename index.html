@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denzel Shato — Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+                    },
+                    colors: {
+                        void: '#050507',
+                        surface: '#0a0a0f',
+                        elevated: '#111118',
+                        border: '#1a1a24',
+                        borderHover: '#2a2a38',
+                        muted: '#5c5c6e',
+                        dim: '#8a8a9a',
+                        text: '#e8e8ed',
+                        accent: '#c9a84c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::selection { background: #c9a84c30; color: #fff; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #050507; color: #e8e8ed; -webkit-font-smoothing: antialiased; }
+        .font-display { font-family: 'Space Grotesk', Inter, sans-serif; }
+        .font-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.08s; }
+        .delay-2 { transition-delay: 0.16s; }
+        .delay-3 { transition-delay: 0.24s; }
+
+        .card { transition: border-color 0.3s ease, background-color 0.3s ease; }
+        .card:hover { border-color: #2a2a38; }
+
+        .link-line { position: relative; }
+        .link-line::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #c9a84c; transition: width 0.25s ease; }
+        .link-line:hover::after { width: 100%; }
+
+        .btn-primary { transition: background-color 0.2s ease, color 0.2s ease; }
+        .btn-primary:hover { background: #e8e8ed; color: #050507; }
+
+        .btn-ghost { transition: border-color 0.2s ease, color 0.2s ease; }
+        .btn-ghost:hover { border-color: #5c5c6e; color: #e8e8ed; }
+
+        .proj-link { transition: gap 0.25s ease, color 0.25s ease; }
+        .proj-link:hover { gap: 0.6rem; color: #c9a84c; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #1a1a24; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2a2a38; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body class="bg-void text-text antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-void/90 border-b border-border backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="#" class="font-mono font-semibold text-sm tracking-tight">DS<span class="text-accent">.</span></a>
+            <div class="hidden md:flex items-center gap-9 text-[13px] font-medium text-dim">
+                <a href="#work" class="hover:text-text transition-colors link-line">Work</a>
+                <a href="#pricing" class="hover:text-text transition-colors link-line">Pricing</a>
+                <a href="#about" class="hover:text-text transition-colors link-line">About</a>
+                <a href="#contact" class="hover:text-text transition-colors link-line">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 bg-text text-void text-[13px] font-semibold rounded-md btn-primary">
+                Start a Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="about" class="pt-32 pb-24 md:pt-44 md:pb-32">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.2em] mb-6 reveal">Denzel Shato — Dee</p>
+                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] mb-8 reveal delay-1">
+                    I build the software that runs your business behind the scenes<span class="text-accent">.</span>
+                </h1>
+                <p class="text-base md:text-lg text-dim leading-relaxed mb-10 max-w-xl reveal delay-2">
+                    Client dashboards, booking systems, live chat, internal tools — the kind of software that saves you hours a week or lets you charge more for a better client experience. Built solo, shipped fast, and made to actually get used.
+                </p>
+                <div class="flex flex-wrap gap-3 reveal delay-3">
+                    <a href="#work" class="inline-flex items-center px-6 py-3 bg-text text-void text-sm font-semibold rounded-md btn-primary">
+                        See What I've Built
+                    </a>
+                    <a href="#pricing" class="inline-flex items-center px-6 py-3 border border-border text-dim text-sm font-medium rounded-md btn-ghost">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6"><div class="h-px bg-border"></div></div>
+
+    <!-- Projects -->
+    <section id="work" class="py-20 md:py-28">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 reveal">
+                <div>
+                    <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] mb-3">Selected Work</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">What this looks like in practice</h2>
+                </div>
+                <p class="text-dim text-sm mt-4 md:mt-0 max-w-xs md:text-right">
+                    Real products, built solo, live right now.
+                </p>
+            </div>
+
+            <!-- Taskly -->
+            <div class="mb-8 reveal">
+                <div class="bg-surface border border-border rounded-xl p-8 md:p-10 card">
+                    <p class="text-[11px] font-semibold text-accent uppercase tracking-[0.15em] mb-4">Client & Project Management Platform</p>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold tracking-tight mb-4">Taskly</h3>
+                    <p class="text-dim text-base leading-relaxed mb-8 max-w-2xl">
+                        A complete client and project management platform for freelancers and small teams. It replaces the usual spreadsheet-plus-invoicing-app-plus-email juggling act with one system: clients, projects, invoices, and activity, all kept in sync in real time.
+                    </p>
+
+                    <div class="mb-8">
+                        <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4">Features</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Real-time client dashboard with role-based access control
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Automatic invoice creation, exported straight to PDF
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                In-app notifications for client activity and project updates
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Project progress tracking and financial summaries in one view
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Client profile pages with full activity timelines
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Automatic light/dark theming across the whole platform
+                            </li>
+                        </ul>
+                        <p class="text-sm text-muted italic mt-5">Next up: team invites and multi-user collaboration.</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-border">
+                        <div class="flex items-center gap-8">
+                            <div>
+                                <p class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1">Investment</p>
+                                <p class="font-mono text-sm font-semibold text-text">$2,500 – $5,500</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1">Build time</p>
+                                <p class="font-mono text-sm font-semibold text-text">4–6 weeks</p>
+                            </div>
+                        </div>
+                        <a href="https://tasklyproject.vercel.app/" class="inline-flex items-center gap-2 text-sm font-medium text-text proj-link">
+                            View Live Site
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ChatFlow -->
+            <div class="reveal delay-1">
+                <div class="bg-surface border border-border rounded-xl p-8 md:p-10 card">
+                    <p class="text-[11px] font-semibold text-accent uppercase tracking-[0.15em] mb-4">In-App Messaging & Live Calling</p>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold tracking-tight mb-4">ChatFlow</h3>
+                    <p class="text-dim text-base leading-relaxed mb-8 max-w-2xl">
+                        A full WhatsApp-style communication system, built to run inside a product — so users can message and video call each other without ever leaving the platform for a third-party app.
+                    </p>
+
+                    <div class="mb-8">
+                        <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4">Features</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Real-time one-on-one messaging with instant delivery
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                HD video and voice calling, no third-party tool required
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Push notifications so nothing gets missed
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Presence and typing indicators
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Read receipts and delivery status on every message
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-dim">
+                                <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                                Full call history log
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-border">
+                        <div class="flex items-center gap-8">
+                            <div>
+                                <p class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1">Investment</p>
+                                <p class="font-mono text-sm font-semibold text-text">$2,500 – $6,000+</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1">Build time</p>
+                                <p class="font-mono text-sm font-semibold text-text">4–8 weeks</p>
+                            </div>
+                        </div>
+                        <a href="https://chat-flow-41057.web.app/" class="inline-flex items-center gap-2 text-sm font-medium text-text proj-link">
+                            View Live Site
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6"><div class="h-px bg-border"></div></div>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 md:py-28">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-16 reveal">
+                <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] mb-3">Pricing</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Typical Project Investment</h2>
+                <p class="text-dim text-base max-w-xl">
+                    Fixed-price packages so you know what to expect before we start. Timelines assume clear requirements and prompt feedback.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal">
+                    <h3 class="font-display text-lg font-bold mb-2">Landing Page</h3>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">3–7 days</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        A responsive site built to convert visitors, not just look nice.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Single or multi-section responsive design
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Contact form or WhatsApp/email CTA
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Basic on-page SEO
+                        </li>
+                    </ul>
+                    <div class="flex items-baseline gap-1 pt-4 border-t border-border font-mono">
+                        <span class="font-display text-2xl font-bold">$300</span>
+                        <span class="text-sm text-muted">– $700</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal delay-1">
+                    <h3 class="font-display text-lg font-bold mb-2">Business Website</h3>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">1–2 weeks</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        4–8 pages, clean structure, and the SEO fundamentals covered.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Up to 8 pages with custom sections
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Scroll animations and polish
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            SEO structure and mobile optimization
+                        </li>
+                    </ul>
+                    <div class="flex items-baseline gap-1 pt-4 border-t border-border font-mono">
+                        <span class="font-display text-2xl font-bold">$800</span>
+                        <span class="text-sm text-muted">– $2,000</span>
+                    </div>
+                </div>
+
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal delay-2">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-display text-lg font-bold">Custom Business Software</h3>
+                        <span class="text-[10px] font-semibold text-muted">Most requested</span>
+                    </div>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">4–6 weeks</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        Custom dashboards, client portals, internal tools, booking systems, CRM platforms, and workflow automation software built specifically around your business.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            User accounts and role-based access
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Real-time database and live updates
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Custom dashboard built around your workflow
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-border font-mono">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-[11px] text-muted font-sans">Starting at</span>
+                            <span class="font-display text-2xl font-bold">$1,500</span>
+                        </div>
+                        <div class="mt-2.5 space-y-1">
+                            <p class="text-[11px] text-muted">Small projects: $1,500 – $2,500</p>
+                            <p class="text-[11px] text-muted">Most projects: $2,500 – $4,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal">
+                    <h3 class="font-display text-lg font-bold mb-2">Real-Time Communication Systems</h3>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">4–8 weeks</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        Messaging platforms, customer chat, live collaboration, voice/video calling, and other real-time applications that require instant updates across users.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Real-time messaging and/or video/voice calling
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Presence, notifications, and delivery status
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Built to handle real concurrent usage, not a demo
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-border font-mono">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-[11px] text-muted font-sans">Starting at</span>
+                            <span class="font-display text-2xl font-bold">$2,000</span>
+                        </div>
+                        <p class="mt-2.5 text-[11px] text-muted">Typical range: $2,000 – $5,000</p>
+                    </div>
+                </div>
+
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal delay-1">
+                    <h3 class="font-display text-lg font-bold mb-2">MVP Development</h3>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">3–6 weeks</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        Have an idea for a startup or SaaS? I'll build a production-ready MVP that lets you validate your idea with real users instead of spending months planning.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Authentication and user accounts
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Responsive UI
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Database setup
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Admin dashboard if required
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Deployment and analytics integration
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Scalable architecture
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-border font-mono">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-[11px] text-muted font-sans">Starting at</span>
+                            <span class="font-display text-2xl font-bold">$2,000</span>
+                        </div>
+                        <p class="mt-2.5 text-[11px] text-muted">Typical range: $2,000 – $5,000</p>
+                    </div>
+                </div>
+
+                <div class="bg-surface border border-border rounded-lg p-7 card reveal delay-2">
+                    <h3 class="font-display text-lg font-bold mb-2">Maintenance & Improvements</h3>
+                    <p class="font-mono text-[11px] font-medium text-muted uppercase tracking-[0.1em] mb-5">Monthly plan</p>
+                    <p class="text-dim text-sm leading-relaxed mb-5">
+                        Monthly maintenance plans available for apps already live.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Bug fixes and small feature additions
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-dim">
+                            <span class="mt-1.5 w-1 h-1 bg-muted rounded-full shrink-0"></span>
+                            Priority response for urgent issues
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-border font-mono">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-[11px] text-muted font-sans">Starting at</span>
+                            <span class="font-display text-2xl font-bold">$300</span>
+                            <span class="text-sm text-muted">/mo</span>
+                        </div>
+                        <div class="mt-2.5 space-y-1">
+                            <p class="text-[11px] text-muted">Small businesses: $300 – $600/month</p>
+                            <p class="text-[11px] text-muted">Larger applications: Custom quote</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 flex items-start gap-3 reveal">
+                <svg class="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p class="text-sm text-dim">
+                    Every project starts with a <span class="text-text font-medium">free discovery call</span> to scope requirements before a fixed price is confirmed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6"><div class="h-px bg-border"></div></div>
+
+    <!-- Process -->
+    <section class="py-20 md:py-28">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-16 reveal">
+                <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] mb-3">Process</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">What it's like to work with me</h2>
+                <p class="text-dim text-base max-w-xl">
+                    No black box. You'll know what's happening at every stage, from the first call to launch.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
+                <div class="flex gap-5 reveal">
+                    <span class="font-mono text-sm text-accent shrink-0 pt-1">01</span>
+                    <div>
+                        <h3 class="font-display text-base font-bold mb-2">Discovery call</h3>
+                        <p class="text-dim text-sm leading-relaxed">A free short call to understand what you're trying to build and why. No pitch, just questions.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 reveal delay-1">
+                    <span class="font-mono text-sm text-accent shrink-0 pt-1">02</span>
+                    <div>
+                        <h3 class="font-display text-base font-bold mb-2">Fixed proposal</h3>
+                        <p class="text-dim text-sm leading-relaxed">A clear scope, timeline, and fixed price before any work starts — no surprises later.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 reveal delay-2">
+                    <span class="font-mono text-sm text-accent shrink-0 pt-1">03</span>
+                    <div>
+                        <h3 class="font-display text-base font-bold mb-2">Build & check-ins</h3>
+                        <p class="text-dim text-sm leading-relaxed">Regular progress updates as it's built, so you're never wondering where things stand.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 reveal delay-3">
+                    <span class="font-mono text-sm text-accent shrink-0 pt-1">04</span>
+                    <div>
+                        <h3 class="font-display text-base font-bold mb-2">Delivery & handover</h3>
+                        <p class="text-dim text-sm leading-relaxed">Final testing, deployment, and a short support window after launch to iron out anything that comes up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6"><div class="h-px bg-border"></div></div>
+
+    <!-- Toolkit — condensed, de-emphasized -->
+    <section class="py-14">
+        <div class="max-w-5xl mx-auto px-6 reveal">
+            <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+                <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] shrink-0">My Core Stack</p>
+                <p class="text-sm text-dim leading-relaxed">
+                    Next.js · React · TypeScript · Firebase · Tailwind CSS · Framer Motion · TanStack Query · Zustand · Zod · React Hook Forms
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-6"><div class="h-px bg-border"></div></div>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 md:py-28">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end reveal">
+                <div>
+                    <p class="text-[11px] font-semibold text-muted uppercase tracking-[0.2em] mb-3">Contact</p>
+                    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">Let's work together</h2>
+                    <p class="text-dim text-base leading-relaxed mb-10 max-w-md">
+                        Tell me what you're trying to build and what it should do for your business. I read every message and respond within 24 hours.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                        <a href="mailto:shatongonidzzashe8@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-text text-void text-sm font-semibold rounded-md btn-primary">
+                            Send an Email
+                        </a>
+                        <a href="https://wa.me/263788687437" class="inline-flex items-center justify-center px-6 py-3 border border-border text-dim text-sm font-medium rounded-md btn-ghost">
+                            Message on WhatsApp
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 text-sm">
+                        <a href="mailto:shatongonidzashe8@gmail.com" class="text-muted hover:text-text transition-colors link-line">shatongonidzashe8@gmail.com</a>
+                        <a href="https://github.com/Denzel-shato" class="text-muted hover:text-text transition-colors link-line">GitHub</a>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between py-3 border-b border-border">
+                            <span class="text-sm text-muted">Experience</span>
+                            <span class="text-sm font-semibold text-text">2+ years</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-border">
+                            <span class="text-sm text-muted">Location</span>
+                            <span class="text-sm font-semibold text-text">Remote</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-border">
+                            <span class="text-sm text-muted">Response Time</span>
+                            <span class="text-sm font-semibold text-text">Within 24h</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <span class="text-sm text-muted">Availability</span>
+                            <span class="inline-flex items-center gap-2 text-sm font-semibold text-text">
+                                <span class="w-1.5 h-1.5 rounded-full bg-text"></span>
+                                Open to work
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-border">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-mono font-semibold text-sm">DS<span class="text-accent">.</span></span>
+                <span class="text-xs text-muted">Denzel Shato</span>
+            </div>
+            <div class="flex items-center gap-8 text-sm text-muted">
+                <a href="https://github.com/Denzel-shato" class="hover:text-text transition-colors">GitHub</a>
+                <a href="https://wa.me/263788687437" class="hover:text-text transition-colors">WhatsApp</a>
+                <a href="mailto:shatongonidzashe8@gmail.com" class="hover:text-text transition-colors">Email</a>
+            </div>
+            <p class="text-xs text-muted">Denzel Shato. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
