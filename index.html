@@ -187,6 +187,68 @@
           transition: none;
         }
       }
+
+      /* Chips / badges (feature + tech stack) */
+      .chip {
+        transition: border-color 0.2s ease, color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .chip:hover {
+        border-color: #2a2a38;
+        color: #e8e8ed;
+        transform: translateY(-1px);
+      }
+
+      /* Demo credentials card */
+      .cred-row {
+        transition: border-color 0.2s ease;
+      }
+      .cred-row:hover {
+        border-color: #2a2a38;
+      }
+      .copy-btn {
+        transition: border-color 0.2s ease, color 0.2s ease,
+          background-color 0.2s ease;
+      }
+      .copy-btn:hover {
+        border-color: #5c5c6e;
+        color: #e8e8ed;
+      }
+      .copy-btn:active {
+        transform: scale(0.96);
+      }
+      .copy-btn-primary {
+        transition: background-color 0.2s ease, color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .copy-btn-primary:hover {
+        background: #e8e8ed;
+        color: #050507;
+      }
+      .copy-btn-primary:active {
+        transform: scale(0.98);
+      }
+
+      /* Project meta grid + status pill (DocCraft) */
+      .status-pill {
+        transition: border-color 0.2s ease;
+      }
+
+      /* Toast */
+      #toast {
+        position: fixed;
+        left: 50%;
+        bottom: 28px;
+        transform: translate(-50%, 12px);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 100;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+      #toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
     </style>
     <base target="_blank" />
     <!-- Google tag (gtag.js) -->
@@ -303,8 +365,241 @@
           </p>
         </div>
 
-        <!-- Taskly -->
+        <!-- DocCraft -->
         <div class="mb-8 reveal">
+          <div
+            class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
+          >
+            <div
+              class="flex flex-wrap items-center justify-between gap-3 mb-4"
+            >
+              <p
+                class="text-[11px] font-semibold text-accent uppercase tracking-[0.15em]"
+              >
+                Business Productivity
+              </p>
+              <span
+                class="status-pill inline-flex items-center gap-1.5 px-2.5 py-1 border border-border rounded-full text-[10px] font-semibold uppercase tracking-[0.1em] text-dim"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Production Ready
+              </span>
+            </div>
+            <h3
+              class="font-display text-2xl md:text-3xl font-bold tracking-tight mb-4"
+            >
+              DocCraft
+            </h3>
+            <p class="text-dim text-base leading-relaxed mb-8 max-w-2xl">
+              DocCraft is a modern business document studio that brings
+              proposals, contracts, invoices, questionnaires, and other
+              professional documents into a single workspace. Instead of
+              juggling separate tools for drafting and formatting, teams write,
+              brand, and refine documents in one place, then hand them off as
+              polished, ready-to-send PDFs. Built as a production system rather
+              than a demo, it's designed around the way small businesses
+              actually produce client-facing paperwork day to day.
+            </p>
+
+            <!-- Meta -->
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-5 mb-8 pb-8 border-b border-border"
+            >
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Role
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  Full Stack Developer
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Timeline
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  8 Weeks
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Client
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  Internal Product
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Est. Project Value
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  $15,000 USD
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Category
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  Business Productivity
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                >
+                  Status
+                </p>
+                <p class="font-mono text-sm font-semibold text-text">
+                  Production Ready
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature chips -->
+            <div class="mb-8">
+              <p
+                class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4"
+              >
+                Features
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Rich Document Editor</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Professional Templates</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Brand Kit</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Theme System</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >AI Writing Assistant</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Document Management</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >PDF Export</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Responsive Design</span
+                >
+              </div>
+            </div>
+
+            <!-- Tech stack -->
+            <div class="mb-8">
+              <p
+                class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4"
+              >
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >React</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >TypeScript</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >Vite</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >Supabase</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >Framer Motion</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >PDFKit</span
+                >
+                <span
+                  class="chip px-3 py-1.5 bg-elevated border border-borderHover rounded-md text-[12px] font-mono text-text"
+                  >React Router</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex flex-wrap items-center gap-3 pt-6 border-t border-border"
+            >
+              <a
+                href="https://doccraftproject.vercel.app/"
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-text text-void text-sm font-semibold rounded-md btn-primary"
+              >
+                Live Demo
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://github.com/Denzel-shato/DocCraft"
+                class="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-dim text-sm font-medium rounded-md btn-ghost"
+              >
+                GitHub Repository
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taskly -->
+        <div class="mb-8 reveal delay-1">
           <div
             class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
           >
@@ -424,7 +719,7 @@
         </div>
 
         <!-- ChatFlow -->
-        <div class="reveal delay-1">
+        <div class="reveal delay-2">
           <div
             class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
           >
@@ -443,6 +738,119 @@
               product — so users can message and video call each other without
               ever leaving the platform for a third-party app.
             </p>
+
+            <!-- Demo Credentials -->
+            <div
+              class="bg-elevated border border-border rounded-lg p-6 mb-8 card"
+            >
+              <div
+                class="flex flex-wrap items-center justify-between gap-3 mb-5"
+              >
+                <p
+                  class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em]"
+                >
+                  Demo Credentials
+                </p>
+                <button
+                  type="button"
+                  onclick="copyAllCreds(this)"
+                  class="copy-btn-primary inline-flex items-center gap-1.5 px-3 py-1.5 bg-text text-void text-[12px] font-semibold rounded-md"
+                >
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  Copy All
+                </button>
+              </div>
+
+              <div class="space-y-2.5">
+                <div
+                  class="cred-row flex items-center justify-between gap-4 bg-surface border border-border rounded-md px-4 py-3"
+                >
+                  <div class="min-w-0">
+                    <p
+                      class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                    >
+                      Email
+                    </p>
+                    <p
+                      id="cred-email"
+                      class="font-mono text-sm text-text truncate"
+                    >
+                      guest@chatflow.com
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onclick="copyCred('cred-email', this)"
+                    aria-label="Copy email"
+                    class="copy-btn shrink-0 inline-flex items-center justify-center w-8 h-8 border border-border rounded-md text-dim"
+                  >
+                    <svg
+                      class="w-3.5 h-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <div
+                  class="cred-row flex items-center justify-between gap-4 bg-surface border border-border rounded-md px-4 py-3"
+                >
+                  <div class="min-w-0">
+                    <p
+                      class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                    >
+                      Password
+                    </p>
+                    <p
+                      id="cred-password"
+                      class="font-mono text-sm text-text truncate"
+                    >
+                      ChatFlow2026
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onclick="copyCred('cred-password', this)"
+                    aria-label="Copy password"
+                    class="copy-btn shrink-0 inline-flex items-center justify-center w-8 h-8 border border-border rounded-md text-dim"
+                  >
+                    <svg
+                      class="w-3.5 h-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
 
             <div class="mb-8">
               <p
@@ -1100,6 +1508,14 @@
       </div>
     </footer>
 
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="bg-text text-void text-[13px] font-semibold px-4 py-2.5 rounded-md font-mono"
+    >
+      Credentials copied.
+    </div>
+
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -1112,6 +1528,64 @@
       document
         .querySelectorAll(".reveal")
         .forEach((el) => observer.observe(el));
+
+      let toastTimer = null;
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      async function writeClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (err) {
+          // Fallback for older/unsupported browsers
+          const tmp = document.createElement("textarea");
+          tmp.value = text;
+          tmp.style.position = "fixed";
+          tmp.style.opacity = "0";
+          document.body.appendChild(tmp);
+          tmp.focus();
+          tmp.select();
+          let ok = false;
+          try {
+            ok = document.execCommand("copy");
+          } catch (e) {
+            ok = false;
+          }
+          document.body.removeChild(tmp);
+          return ok;
+        }
+      }
+
+      async function copyCred(elId, btn) {
+        const value = document.getElementById(elId).textContent.trim();
+        const ok = await writeClipboard(value);
+        if (ok) {
+          showToast("Credentials copied.");
+          if (btn) {
+            btn.classList.add("text-accent", "border-accent");
+            setTimeout(
+              () => btn.classList.remove("text-accent", "border-accent"),
+              900
+            );
+          }
+        }
+      }
+
+      async function copyAllCreds(btn) {
+        const email = document.getElementById("cred-email").textContent.trim();
+        const password = document
+          .getElementById("cred-password")
+          .textContent.trim();
+        const combined = `Email: ${email}\nPassword: ${password}`;
+        const ok = await writeClipboard(combined);
+        if (ok) showToast("Credentials copied.");
+      }
     </script>
   </body>
 </html>
