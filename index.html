@@ -190,12 +190,22 @@
 
       /* Chips / badges (feature + tech stack) */
       .chip {
-        transition: border-color 0.2s ease, color 0.2s ease,
-          transform 0.2s ease;
+        transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
       }
       .chip:hover {
         border-color: #2a2a38;
         color: #e8e8ed;
+        transform: translateY(-1px);
+      }
+
+      /* Coming soon chips (dashed, muted — visually distinct from shipped features) */
+      .chip-soon {
+        transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        border-style: dashed;
+      }
+      .chip-soon:hover {
+        border-color: #2a2a38;
+        color: dim;
         transform: translateY(-1px);
       }
 
@@ -229,7 +239,7 @@
         transform: scale(0.98);
       }
 
-      /* Project meta grid + status pill (DocForge) */
+      /* Project meta grid + status pill (DocForge / InkForge) */
       .status-pill {
         transition: border-color 0.2s ease;
       }
@@ -252,14 +262,19 @@
     </style>
     <base target="_blank" />
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLVRNZNZTQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CLVRNZNZTQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-CLVRNZNZTQ');
-</script>
+      gtag("config", "G-CLVRNZNZTQ");
+    </script>
   </head>
   <body class="bg-void text-text antialiased">
     <!-- Nav -->
@@ -370,9 +385,7 @@
           <div
             class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
           >
-            <div
-              class="flex flex-wrap items-center justify-between gap-3 mb-4"
-            >
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
               <p
                 class="text-[11px] font-semibold text-accent uppercase tracking-[0.15em]"
               >
@@ -412,15 +425,9 @@
             <div
               class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-5 mb-8 pb-8 border-b border-border"
             >
-              <div>
-                
-              </div>
-              <div>
-               
-              </div>
-              <div>
-               
-              </div>
+              <div></div>
+              <div></div>
+              <div></div>
               <div>
                 <p
                   class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
@@ -447,9 +454,7 @@
                 >
                   Timeline
                 </p>
-                <p class="font-mono text-sm font-semibold text-text">
-                  8 Weeks
-                </p>
+                <p class="font-mono text-sm font-semibold text-text">8 Weeks</p>
               </div>
             </div>
 
@@ -477,7 +482,7 @@
                   class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
                   >Theme System</span
                 >
-                
+
                 <span
                   class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
                   >Document Management</span
@@ -497,12 +502,8 @@
             <div class="mb-8">
               <p
                 class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4"
-              >
-                
-              </p>
-              <div class="flex flex-wrap gap-2">
-               
-              </div>
+              ></p>
+              <div class="flex flex-wrap gap-2"></div>
             </div>
 
             <div
@@ -550,8 +551,227 @@
           </div>
         </div>
 
-        <!-- Taskly -->
+        <!-- InkForge -->
         <div class="mb-8 reveal delay-1">
+          <div
+            class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
+          >
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <p
+                class="text-[11px] font-semibold text-accent uppercase tracking-[0.15em]"
+              >
+                AI Reading Platform
+              </p>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 border border-accent/40 rounded-full text-[10px] font-semibold uppercase tracking-[0.1em] text-accent"
+                >
+                  Featured Product
+                </span>
+                <span
+                  class="status-pill inline-flex items-center gap-1.5 px-2.5 py-1 border border-border rounded-full text-[10px] font-semibold uppercase tracking-[0.1em] text-dim"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                  Active Personal Project
+                </span>
+              </div>
+            </div>
+            <h3
+              class="font-display text-2xl md:text-3xl font-bold tracking-tight mb-4"
+            >
+              InkForge
+            </h3>
+            <p class="text-dim text-base leading-relaxed mb-6 max-w-2xl">
+              InkForge is a premium digital reading platform for readers who
+              want a beautiful, distraction-free experience. Import EPUB books,
+              build a personal library, track progress across every title, and
+              read inside a set of calm, considered themes. It's being built
+              with AI-assisted translation in mind, laying the groundwork for
+              future retranslation, character memory, and terminology
+              consistency tools.
+            </p>
+
+            <!-- Overview / Problem / Design philosophy -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 pb-8 border-b border-border"
+            >
+              <div>
+                <p
+                  class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-2"
+                >
+                  Problem it solves
+                </p>
+                <p class="text-[13px] text-dim leading-relaxed">
+                  Many great web novels never reach their full potential because
+                  poor translations are filled with grammatical mistakes,
+                  inconsistent terminology, awkward sentence structure, and
+                  writing that breaks immersion. InkForge exists to change that.
+                  The current release provides the foundation—a premium reading
+                  platform—while the next major update will introduce
+                  AI-assisted translation enhancement to make these stories far
+                  more enjoyable to read.
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-2"
+                >
+                  Design philosophy
+                </p>
+                <p class="text-[13px] text-dim leading-relaxed">
+                  The interface is intentionally calm and unobtrusive, allowing
+                  readers to focus entirely on the story. Every element is
+                  designed to complement the reading experience while laying the
+                  foundation for InkForge's upcoming AI-powered translation
+                  enhancements.
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-2"
+                >
+                  Lessons learned
+                </p>
+                <p class="text-[13px] text-dim leading-relaxed">
+                  One of the biggest lessons was the importance of building
+                  reliable systems before intelligent ones. Features like
+                  reading progress, bookmarks, chapter tracking, and EPUB
+                  parsing needed to be dependable first, creating a solid
+                  foundation for the upcoming AI translation pipeline.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature chips -->
+            <div class="mb-6">
+              <p
+                class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4"
+              >
+                Features
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >EPUB Import</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Personal Library</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Continue Reading</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Reading Progress</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Chapter Completion Tracking</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Reading Analytics</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Bookmarks</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Multiple Reading Themes</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Responsive Design</span
+                >
+                <span
+                  class="chip px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-dim"
+                  >Authentication</span
+                >
+              </div>
+            </div>
+
+            <!-- Coming soon -->
+            <div class="mb-8">
+              <p
+                class="text-[11px] font-semibold text-muted uppercase tracking-[0.15em] mb-4"
+              >
+                Coming Soon
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="chip-soon px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-muted"
+                  >AI Retranslation</span
+                >
+                <span
+                  class="chip-soon px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-muted"
+                  >Character Memory</span
+                >
+                <span
+                  class="chip-soon px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-muted"
+                  >Terminology Consistency</span
+                >
+                <span
+                  class="chip-soon px-3 py-1.5 border border-border rounded-full text-[12px] font-mono text-muted"
+                  >Writing Style Selection</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-border"
+            >
+              <div class="flex items-center gap-8">
+                <div>
+                  <p
+                    class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                  >
+                    Investment
+                  </p>
+                  <p class="font-mono text-sm font-semibold text-text">
+                    $4,000 – $7,000
+                  </p>
+                </div>
+
+                <div>
+                  <p
+                    class="text-[10px] text-muted uppercase tracking-[0.1em] mb-1"
+                  >
+                    Build time
+                  </p>
+                  <p class="font-mono text-sm font-semibold text-text">
+                    5–8 weeks
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://inkforgeproject.vercel.app/"
+                class="inline-flex items-center gap-2 text-sm font-medium text-text proj-link"
+              >
+                View Live Site
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taskly -->
+        <div class="mb-8 reveal delay-2">
           <div
             class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
           >
@@ -671,7 +891,7 @@
         </div>
 
         <!-- ChatFlow -->
-        <div class="reveal delay-2">
+        <div class="reveal delay-3">
           <div
             class="bg-surface border border-border rounded-xl p-8 md:p-10 card"
           >
